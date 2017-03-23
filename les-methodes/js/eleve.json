@@ -1,0 +1,17 @@
+{
+
+
+	[{
+					nom:'Marc',
+					moyenne:5
+					},
+					{
+						nom:'Joe',
+						moyenne:20
+						},
+						{
+							nom:'Caroline',
+							moyenne:3.5
+
+							}]
+	}

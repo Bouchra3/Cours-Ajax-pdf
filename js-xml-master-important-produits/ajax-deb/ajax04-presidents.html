@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test Ajax</title>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<style type="text/css">
+		body{
+			font: 16px sans-serif;
+		}
+		h1,
+		h2,
+		h3,
+		h4{
+			font-weight: 100;
+			text-align: center;
+		}
+		button{
+			display: inline-block;
+			border:0;
+			cursor: pointer;
+		}
+		/*theme button*/
+		.btn-default{
+			width: auto;
+			line-height: 40px;
+			text-align: center;
+			font-size: 1rem;
+			border-radius: 4px;
+			padding: 0 10px;
+		}
+		.warning{
+			width: 600px;
+			padding:15px;
+			margin:0 auto;
+
+		}
+		.primary{
+			background:  #2196f3;
+			color: #fff;
+			display: none;
+		}
+		.btn-default::before{
+			content: '\f054';
+			font-family: 'FontAwesome';
+			margin-right: 5px;
+		}
+		.btn-warning{
+			background: #d50000;
+			color: #fff;
+			text-shadow: 1px 1px 1px #222;
+		}
+		ul{
+			line-height: 30px;
+			width: auto;
+			margin:10px auto;
+			padding:0;
+		}
+
+		li{
+			background: #e8eaf6;
+			list-style: none;
+			padding:10px;
+		}
+		li:nth-child(2n+1){
+			background: #c5cae9;
+		}
+		li:nth-child(4n+1){
+			background:  #2196f3;
+			color: #fafafa;
+		}
+		
+	</style>
+</head>
+<body>
+			<h1>&lt;/&gt; $.getJSON</h1>
+			<p id="target" class="primary warning"></p>
+			<section class="warning">
+			<ul></ul>
+				
+			</section>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function(){//charger le dom
+			var list=$('ul');
+				$.getJSON('president.json',function(data){
+						
+					//console.log(data.user[0].nom);
+				for (var i=0; i<data.president.length; i++) {
+					list.append('<li>'+data.president[i].nom+'</li>');
+					list.append('<li>Mandat : '+data.president[i].mandat+'</li>');
+					list.append('<li>Naissance : '+data.president[i].naissance+'</li>');
+					list.append('<li>Déces : '+data.president[i].deces+'</li>');
+					console.log(data.president[i].nom);
+				}
+
+
+			});
+
+
+				
+			});
+		
+		</script>
+			
+		</body>
+</html>

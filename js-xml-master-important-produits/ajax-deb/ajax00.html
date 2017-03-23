@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test Ajax</title>
+	<style type="text/css">
+		body{
+			font: 16px sans-serif;
+		}
+		h1,
+		h2,
+		h3,
+		h4{
+			font-weight: 100;
+			text-align: center;
+		}
+		button{
+			display: inline-block;
+			border:0;
+		}
+		/*theme button*/
+		.btn-default{
+			width: auto;
+			line-height: 40px;
+			text-align: center;
+			font-size: 1rem;
+			border-radius: 3px;
+			padding: 0 10px;
+		}
+		.warning{
+			width: 800px;
+			padding:15px;
+			margin:0 auto;
+
+		}
+		.primary{
+			background:  #2196f3;
+			color: #fff;
+			display: none;
+		}
+		
+		
+	</style>
+</head>
+<body>
+			<h1>&lt;/&gt; Ajax(asynchronous, javascript and xml)</h1>
+			<p id="target" class="primary warning"></p>
+			<p class="warning">
+			<button id="more_com" class="btn-default">Charger les données Ajax</button></p>
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script>
+			$("#more_com").click(function(){
+
+		     
+
+				$.ajax({
+
+				url : 'cible.html' // La ressource ciblée
+		      
+
+				});
+		   
+		     console.log("chargé");
+		     //$('#target').load('cible.html').fadeIn(400);
+
+			});
+			</script>
+			
+		</body>
+</html>

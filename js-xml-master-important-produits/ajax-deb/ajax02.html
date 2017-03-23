@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test Ajax</title>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+	<style type="text/css">
+		body{
+			font: 16px sans-serif;
+		}
+		h1,
+		h2,
+		h3,
+		h4{
+			font-weight: 100;
+			text-align: center;
+		}
+			.btn-default{
+			width: auto;
+			line-height: 40px;
+			text-align: center;
+			font-size: 1rem;
+			border-radius: 4px;
+			padding: 0 10px;
+			border:0;
+			cursor: pointer;
+		}
+		.btn-warning{
+			background: #d50000;
+			color: #fff;
+			text-shadow: 1px 1px 1px #222;
+		}
+		.warning{
+			width: 800px;
+			padding:15px;
+			margin:0 auto;
+
+		}
+		ul{
+			line-height: 30px;
+			width: 800px;
+			margin:10px auto;
+			padding:0;
+		}
+
+		li{
+			background: #e8eaf6;
+			list-style: none;
+			padding:10px;
+		}
+		li:nth-child(2n+1){
+			background: #c5cae9;
+		}
+		#stage{
+			display: none;
+		}
+		li::before{
+			content: '\f00c';
+			font-family: 'FontAwesome';
+			margin-right: 5px;
+		}
+	</style>
+</head>
+<body>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<p class="warning"><button class="btn-default btn-warning">On charge des données json</button></p>
+	
+		<ul id="stage">
+		
+		</ul>
+		<script>
+			$(document).ready(function(){
+    		$("button").one("click",function(){
+        		$.getJSON("cmd.json", function(data){
+        		$("#stage").fadeIn(400);
+	            //$('#stage').html('<p> Name: ' + data.commandes[0].action + '</p>');
+	            for(let i=0; i<data.commandes.length; i++){
+	            	console.log(data.commandes[i].titre+" : "+data.commandes[i].action);
+	            	 $('#stage').append('<li>' + data.commandes[i].titre+" : "+data.commandes[i].action + '</li>');
+	            }
+	            $('li').eq(3).css('color','red');//ecception pour le dernier
+	            //console.log($('ul').next());
+	       
+	            });
+
+        });
+        		 //alert("ok");
+        		   		     /*$( "li" ).each( function( index, element ){
+    			console.log( $( this ).text() );
+    			$('#stage').appendTo( $(this).text());
+				});*/
+    });
+			
+		
+ 
+		</script>
+			
+	
+			
+		</body>
+</html>

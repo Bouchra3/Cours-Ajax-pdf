@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>méthode get</title>
+	<link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
+</head>
+<body>
+	<h1>La méthode $.get</h1>
+	<p class="container">
+		<button class="btn">Cliquer ici</button>
+	</p>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+		//méthode get
+		//$(document).ready(function(){})
+		$(function(){
+			$('.btn').one('click',function(){
+				
+				$.get('cibles.html',function(){//méthode d'envoi get
+					console.log('Requete get() envoyé');
+				})
+				.done(function(data){
+					console.log(data);//afficher la requete
+					$(data).appendTo('.container');
+				})
+				//parser les erreurs
+				.fail(function(){
+					console.log('Erreur de chargement');
+					$('.container').append('<strong><br>Erreur de chargement</strong>').css('color','red');
+
+				})
+				.always(function(){
+					console.log('Requete terminé');
+				})
+			})
+
+		});
+
+	</script>
+</body>
+</html>

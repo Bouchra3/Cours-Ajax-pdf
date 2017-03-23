@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>popine ligthbox</title>
+	<style type="text/css">
+		body{
+	font: 16px 'Open Sans',sans-serif;
+	margin:0;/* 16 x 62.5=1.000 */
+			}
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,h6{
+				font-weight: 300;
+				margin:0;
+				text-align: center;
+			}
+			p{
+				margin:0;
+				
+			}
+			a{
+				text-decoration: none;
+			}
+
+			*{
+				-webkit-box-sizing: border-box;
+				-moz-box-sizing: border-box;
+				box-sizing: border-box;
+			}
+			h1{
+				cursor:pointer;
+			}
+			/*thème pour la lightbox*/
+			.light-box{
+				position: absolute;
+				top:0;
+				left:0;
+				width: 100%;
+				height: 100%;
+				background: rgba(0,0,0,0.5);
+				 display: none; 
+			}
+			.warning{
+				position: absolute;
+				top:50%;
+				left:50%;
+				width: 400px;
+				height: 200px;
+				background: #fafafa;
+				margin:-100px 0 0 -200px;/*pour centrer la boite*/
+				overflow: hidden;
+				border-radius:4px;
+			}
+			.warning p{
+				text-align: center;
+				margin:25px auto;
+			}
+			.warning h2{
+				color:rgba(255,255,255,1);
+				border-bottom: solid 1px #ccc;
+				line-height: 40px;
+				background: #3498db;
+			}
+			.success{
+				border: 0;
+				width: 150px;
+				display: block;
+				margin:auto;
+				text-align: center;
+				line-height: 35px;
+				background: rgba(0,200,0,1);
+				border-radius:4px;
+				font-size: 1rem;
+				color:#fff;
+			}
+
+	</style>
+</head>
+<body>
+	<h1>La lightbox css and jQuery</h1>
+		<div class="light-box">
+			<div class="warning">
+				<h2>Voici le message</h2>
+				<p>Contenu...</p>
+				<button class="success">Annuler</button>
+			</div>
+		</div>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script>
+		$(function(){
+			console.log($('body').next());
+			$('body').on('click','h1',function(){
+				$('h1').next().fadeIn(400);/*$(".light-box").fadeIn()*/
+			});
+			//fermer la popine
+			$('button').on('click',function(){
+				$('.warning').parent().fadeOut(400);/*$(".light-box").fadeOut()*/
+
+			});
+			//fermer par la lightbox
+			$('.light-box').on('click',function(){
+				$(this).delay(200).fadeOut();
+
+			});
+			$('.warning,button,h2,p').on('click',function(event){
+				event.stopPropagation();
+
+			});
+
+		});
+		</script>
+</body>
+</html>

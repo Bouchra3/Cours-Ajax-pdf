@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+
+	<title>Les méthodes ajax</title>
+	<style>
+		body{
+			font: 16px sans-serif;
+			font-size-adjust: 0.5;
+		}
+		h1,
+		h2,
+		h3{
+			font-weight: 100;
+			text-align: center;
+		}
+		button{
+			border:0;
+		}
+		.btn{
+			width: 200px;
+			line-height: 30px;
+			display: block;
+			margin:10px auto;
+			background: #0c80d3 none repeat scroll;
+			color: #fafafa;
+			padding:10px 0;
+			font-size: 1rem;
+			border-radius: 4px;
+		}
+		section{
+			display: none;
+			width: 600px;
+			margin:0 auto;
+			text-align: center;
+		}
+
+	</style>
+</head>
+<body>
+	<h1>Les méthodes ajax ($.GET)</h1>
+	<button class="btn">Cliquer ici</button>
+	<section class="target"></section>
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.1.1.min.js"></script>
+	<script>
+		$(function(){
+			
+			$('.btn').click( function(){
+				$.ajax({
+					    dataType: "json",
+					    url: 'js/user.json',
+					    success: function (data,status) {
+					        $('.target').html( data.name + ' : ' +  data.email ).fadeIn(400);
+					        console.log(status);
+					    }
+					});
+				
+
+			});
+		});
+	</script>
+
+	
+	
+</body>
+</html>

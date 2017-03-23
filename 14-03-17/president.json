@@ -1,0 +1,49 @@
+{
+	"president":[
+		{
+			"nom":"Charles de Gaulles",
+			"mandat":"1959-1969",
+			"naissance":"1890",
+			"deces":"1970"
+		},
+		{
+			"nom":"George Pompidou",
+			"mandat":"1969-1974",
+			"naissance":"1911",
+			"deces":"1974"
+		},
+		{
+			"nom":"Valérie Giscard Estaing",
+			"mandat":"1974-1981",
+			"naissance":"1926",
+			"deces":"vivant"
+		},
+		{
+			"nom":"François Mitterand",
+			"mandat":"1981-1995",
+			"naissance":"1916",
+			"deces":"1996"
+		},
+		{
+			"nom":"Jacques Chirac",
+			"mandat":"1995-2007",
+			"naissance":"1932",
+			"deces":"vivant"
+		},
+		{
+			"nom":"Nicolas Sarkozy",
+			"mandat":"2007-2012",
+			"naissance":"1955",
+			"deces":"fait compagne"
+		},
+		{
+			"nom":"François Hollande",
+			"mandat":"2012",
+			"naissance":"1954",
+			"deces":"Toujours président"
+		}
+
+
+
+	]
+}

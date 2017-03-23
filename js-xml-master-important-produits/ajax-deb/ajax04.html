@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>test Ajax</title>
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+		<style type="text/css">
+		body{
+			font: 16px sans-serif;
+		}
+		h1,
+		h2,
+		h3,
+		h4{
+			font-weight: 100;
+			text-align: center;
+		}
+		button{
+			display: inline-block;
+			border:0;
+			cursor: pointer;
+		}
+		/*theme button*/
+		.btn-default{
+			width: auto;
+			line-height: 40px;
+			text-align: center;
+			font-size: 1rem;
+			border-radius: 4px;
+			padding: 0 10px;
+		}
+		.warning{
+			width: 800px;
+			padding:0;
+			margin:0 auto 10px;
+			text-align: center;
+
+		}
+		
+		.primary{
+			background:  #2196f3;
+			color: #fff;
+			display: none;
+		}
+		.alert{
+			padding:15px;
+			background: #d50000;
+			text-align: center;
+			color:#fff;
+
+		}
+		.alert{
+			padding:15px;
+			background: #d50000;
+			text-align: center;
+			color:#fff;
+
+		}
+		.btn-default::before,li::before{
+			content: '\f054';
+			font-family: 'FontAwesome';
+			margin-right: 5px;
+		}
+		.btn-warning{
+			background: #d50000;
+			color: #fff;
+			text-shadow: 1px 1px 1px #222;
+		}
+		ul{
+			padding:0;
+
+		}
+		li{
+			list-style: none;
+			background: #e3f2fd;
+			color:#222;
+			line-height: 35px;
+			margin-bottom: 1px;
+			padding-left: 10px;
+			text-align: left;
+		}
+		li:nth-child(2n+1){
+			background: #9fa8da;
+		}
+		
+	</style>
+</head>
+<body>
+	<ul class="commentaires warning primary"></ul>
+	<p class="warning"><button id="more_com" class="btn-default btn-warning">Chargement du fichier</button></p>	
+	
+	
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+		<script>
+			$("#more_com").one('click',function(){
+
+     
+
+			    $.ajax({
+
+			       url : 'cmd.json',//cible
+
+			       type : 'GET',//méthode
+
+			       dataType : 'json',//type de fichier
+
+			       success : function(data, statut){//objet pour le fichier et le chargement
+			       	
+			       	var list=$(".commentaires");
+			       	$('.primary').fadeIn(400);
+			       	
+			       	//itération data
+			           for(i=0; i<data.commandes.length; i++){
+
+			           list.append("<li>"+data.commandes[i].titre+"</li>");
+			            list.append("<li>"+data.commandes[i].action+"</li>");
+			       	}
+			           console.log(statut);
+			           //console.log(data.commandes[0].titre);
+
+
+			       },
+
+			       //en cas d'erreur
+			       error : function(resultat, statut, erreur){
+
+			         //alert("erreur de chargement")
+			         $(".commentaires").addClass('alert');
+			         $(".commentaires").text("Erreur de chargement!!!").fadeIn(400);
+
+			       },
+
+			       //requete terminé
+			       complete : function(resultat, statut){
+			       		console.log("ok : "+ statut);
+
+			       }
+
+
+			    });
+
+   
+
+		});
+
+
+			</script>
+			
+		</body>
+</html>

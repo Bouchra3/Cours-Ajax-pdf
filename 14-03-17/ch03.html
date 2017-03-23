@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>ajax</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+	<p class="container">
+		<button class="btn btn-primary">Données à charger</button>
+	</p>
+	<p class="commentaire"></p>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script>
+	$(function(){
+			$('button').one('click',function(){
+				//requete ajax
+				$.ajax({
+					url:'cible.html',//cible
+					type:'GET',
+					dataType:'html',
+					success : function(data,statut){
+						$(data).appendTo('.commentaire');
+						console.log(statut+" "+data);
+
+					},
+					error : function(resultat, statut, erreur){
+						//alert('erreur de page');
+						//document.querySelector('.commentaire').textContent('erreur');
+						$('.commentaire').text(statut+" de page").addClass('warning');
+						console.log("Erreur de fichier : "+statut);
+
+					},
+					complete : function(resultat, statut){
+						console.log("Requete terminé "+statut);
+					}
+
+					
+					
+				});
+				
+				//console.log('chargé');
+			});
+
+	});
+	</script>
+
+</body>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>porfolio</title>
+	<style type="text/css">
+		body{
+			font: 16px sans-serif;/* 16*62.5=1.000*/
+			margin:0;
+		}
+		h1,
+		h2,
+		h3{
+			font-weight: 100;
+			text-align: center;
+			margin:0;
+		}
+		h1{
+			font-size: 1.875rem;/* 187.5% */
+		}
+		*{
+			-webkit-box-sizing: border-box;
+			-moz-box-sizing: border-box;
+			box-sizing: border-box;
+		}
+		.picture{
+			position: -webkit-sticky;
+			position: sticky;
+			top:0;
+			width: 52.0833333333%;/* 800px mult 100% divise par la taille de la zone d'affichage*/
+			height:300px;
+			margin:0 auto 0.625rem;
+			border:solid 1px #ccc;
+			box-shadow: 0 0 5px #999;
+		}
+		.picture-primary{
+			background: url(img/1.jpg)no-repeat center center fixed;/* mettre scroll pour tester l'inverse */
+			background-size: cover;
+		}
+		.picture-secondary{
+			background: url(img/2.jpg)no-repeat center center fixed;
+			background-size: cover;
+		}
+		.picture-last{
+			background: url(img/3.jpg)no-repeat center center fixed;
+			background-size: cover;
+		}
+		/*responsive*/
+		@media screen and (max-width: 1024px){
+			body{
+				padding:0 10px;
+			}
+			.picture{
+				width: auto;
+			}
+			h1{
+				font-size: 4vw;
+				padding:10px 0;
+			}
+		}
+	</style>
+</head>
+<body>
+	<h1>Portfolio paralax</h1>
+	<div class="picture picture-primary">
+		
+	</div>
+	<div class="picture picture-secondary">
+		
+	</div>
+	<div class="picture picture-last">
+		
+	</div>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>getJson</title>
+	<link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+	<p></p>
+	<p></p>
+	
+	<ul id="affichage"></ul>
+	<div class="pictures"></div>
+	<ul></ul>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	<script type="text/javascript">
+	$(function(){
+		$('p').eq(0).text('texte niveau 1');//selectionner un niveau de balise sur le dom
+		$('p').eq(1).text('texte niveau 2');
+		//getJSON méthode pour les fichier json
+		var list=$('ul');
+		$.getJSON('president.json',function(data){
+			
+			for(i=0; i<data.president.length; i++){
+			console.log(data.president[i].nom+ 
+			':'+data.president[i].mandat);//affichage
+			list.append('<li>'+data.president[i].nom);
+			list.append('<li>Mandat : '+data.president[i].mandat);
+			list.append('<li>Naissance'+data.president[i].naissance);
+			list.append('<li>Déces'+data.president[i].deces);
+			}
+
+		});
+
+	});
+	</script>
+</body>
+</html>
